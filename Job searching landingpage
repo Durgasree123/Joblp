@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Searching Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <style>
+        /* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-image: url('Joblp.jpg'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow-y: scroll; /* Ensure vertical scroll */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.502); /* Semi-transparent overlay */
+    z-index: 0; /* Place it behind the content */
+}
+
+/* Ensure content is above the overlay */
+header, .jobs-section, .about-section, .contact-section, .footer {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    color: #fff; /* Light text color for better contrast */
+}
+
+/* Header Section */
+.header {
+    background-color: rgba(42, 81, 210, 0.728); /* Semi-transparent background */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #00aaff; /* Accent border */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-button {
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-link {
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.nav-link:hover {
+    color: #00aaff;
+    border-bottom: 2px solid #00aaff;
+}
+
+.hero {
+    padding: 50px 20px;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.hero p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #00aaff;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0044cc;
+}
+
+/* Jobs Section */
+.jobs-section {
+    padding: 20px;
+    margin: 20px 0;
+    background-image: url('Jobl.jpg'); /* Path to your section background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
+}
+
+.jobs-section h3 {
+    text-align: center;
+    color: #0044cc;
+    font-size: 28px;
+}
+
+.job-listing {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.job-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: 30%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.job-card h4 {
+    margin: 0;
+    color: #0044cc;
+}
+
+.job-card p {
+    margin: 5px 0;
+    color: #333; /* Dark color for better readability */
+}
+
+.job-card a {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.job-card a:hover {
+    text-decoration: underline;
+    color: #0044cc;
+}
+
+.more-jobs-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    background-color: #0044cc;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.more-jobs-button:hover {
+    background-color: #00aaff;
+}
+
+/* About Section */
+.about-section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 68, 204, 0.1), rgba(0, 68, 204, 0.2));
+    z-index: 0;
+}
+
+.about-section h3 {
+    margin-top: 0;
+    color: #0044cc;
+    font-size: 24px;
+    z-index: 1;
+    position: relative;
+}
+
+.about-section p,
+.about-section ul {
+    color: #333;
+    z-index: 1;
+    position: relative;
+}
+
+.about-section ul {
+    padding-left: 20px;
+}
+
+.about-section li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.about-section li i {
+    color: #00aaff;
+    margin-right: 10px;
+}
+
+.about-section li strong {
+    color: #0044cc;
+}
+
+.about-section h4 {
+    color: #0044cc;
+    font-size: 20px;
+    z-index: 1;
+    position: relative;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for "Contact Us" */
+}
+ 
+.contact-section h3,p {
+    color: #0044cc;
+    
+
+}
+
+.contact-form input,
+.contact-form textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #6352c2;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #00aaff;
+    color: rgb(78, 71, 172);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0044cc;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: white;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <button class="logo-button">DreamJob</button>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#jobs" class="nav-link">Jobs</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h2>Find Your Dream Job Today</h2>
+            <p>Your career journey starts here. Search for job opportunities tailored to your skills and preferences.</p>
+            <form class="search-bar">
+                <input type="text" placeholder="Job title, keywords, or company">
+                <input type="text" placeholder="Location">
+                <button type="submit">Search Jobs</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Jobs Section -->
+    <section id="jobs" class="jobs-section">
+        <h3>Featured Jobs</h3>
+        <div class="job-listing">
+            <div class="job-card">
+                <h4>Software Developer</h4>
+                <p>Location: New York, NY</p>
+                <p>Company: TechCorp</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="job-card">
+                <h4>Graphic Designer</h4>
+                <p>Location: Los Angeles, CA</p>
+                <p>Company: Creative Studios</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="job-card">
+                <h4>Data Analyst</h4>
+                <p>Location: San Francisco, CA</p>
+                <p>Company: Data Insights</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <button class="more-jobs-button">See More Jobs</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h3><i class="fas fa-info-circle"></i> About JobFinder</h3>
+        <p>At <strong>JobFinder</strong>, we believe that finding the right job should be simple, efficient, and accessible to everyone. Our platform is designed to connect talented professionals with top companies looking to hire. Whether you’re a recent graduate searching for your first role or an experienced professional seeking new challenges, we’re here to help you take the next step in your career.</p>
+        <h4><i class="fas fa-bullhorn"></i> Our Mission:</h4>
+        <p>Our mission is to empower job seekers by providing them with the tools and resources they need to succeed in today’s competitive job market. We aim to make the job search process easy and stress-free by offering a user-friendly interface, personalized job recommendations, and a wide range of opportunities across various industries.</p>
+        <h4><i class="fas fa-star"></i> Why Choose Us:</h4>
+        <ul>
+            <li><i class="fas fa-briefcase"></i> <strong>Wide Range of Opportunities:</strong> Explore thousands of job listings tailored to your skills, location, and preferences.</li>
+            <li><i class="fas fa-search"></i> <strong>Easy Job Search:</strong> Use our powerful search and filtering options to quickly find jobs that match your needs.</li>
+            <li><i class="fas fa-building"></i> <strong>Trusted by Top Employers:</strong> We work with leading companies to bring you the best job opportunities.</li>
+            <li><i class="fas fa-tools"></i> <strong>Career Resources:</strong> Access valuable tips, resume guides, and interview advice to boost your chances of landing your dream job.</li>
+        </ul>
+        <p><strong>Join Us:</strong> Start your job search journey with JobFinder today. Whether you’re looking for a full-time position, part-time work, or freelance opportunities, we’ve got something for everyone. Let us help you find the perfect job that aligns with your goals and aspirations.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h3>Contact Us</h3>
+        <p>Have questions or need assistance? Reach out to us, and we’ll be happy to help!</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 JobFinder. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
